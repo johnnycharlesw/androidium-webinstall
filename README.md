@@ -4,8 +4,6 @@ This is an easy-to-use web installer for Androidium that runs entirely in the br
 
 ## Adapting for other variants of the ROM
 
-This installer was built for Androidium specifically, other ROMs may work but could require heavy tweaking for branding so you may as well [fork the upstream ProtonAOSP installer (Androidium is not built on ProtonAOSP, it just reuses installer code)](https://github.com/kdrag0n/android-webinstall) if you want to adapt it for a new ROM.
-
 You can start with the following Yarn commands:
 
 - `yarn install`
