@@ -1,11 +1,11 @@
 <template>
     <v-container class="d-flex justify-space-between flex-column flex-grow-1">
         <div class="mt-n4 flex-grow-1" v-if="$root.$data.release !== null">
-            <h6 class="text-h6 pb-4">Install {{ $root.$data.OS_NAME }}</h6>
+            <h6 class="text-h6 pb-4">Install Androidium</h6>
 
             <div class="text-body-1">
                 <p>
-                    This will install {{ $root.$data.OS_NAME }}
+                    This will install Androidium
                     {{ $root.$data.release.version
                     }}{{
                         $root.$data.RELEASE_VARIANTS[
@@ -47,7 +47,7 @@
                 <v-icon slot="icon" color="green darken-3">mdi-check</v-icon>
                 <div class="my-4">
                     <span class="text-body-1 green--text text--darken-3"
-                        >Installed {{ $root.$data.OS_NAME }}
+                        >Installed Androidium
                         {{ $root.$data.release.version }}</span
                     >
                 </div>

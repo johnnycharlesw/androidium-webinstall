@@ -5,12 +5,10 @@
 
             <div class="text-body-1" v-if="$root.$data.release !== null">
                 <p>
-                    Congratulations! Your
-                    {{ getDeviceName($root.$data.product) }} is now running
-                    {{ $root.$data.OS_NAME }} {{ $root.$data.release.version }}.
+                    Congratulations! Your {{ getDeviceName($root.$data.product) }} is now running Androidium {{ $root.$data.release.version }}.
                 </p>
                 <p>
-                    If you like {{ $root.$data.OS_NAME }}, please consider
+                    If you like Androidium, please consider
                     donating to support development and cover maintenance costs:
                 </p>
             </div>
@@ -33,6 +31,8 @@
                         <liberapay-icon v-if="donation.icon === 'liberapay'" />
                         <paypal-icon v-if="donation.icon === 'paypal'" />
                         <patreon-icon v-if="donation.icon === 'patreon'" />
+                        <dogecore-icon v-if="donation.icon === 'dogecore'" />
+                        
                     </div>
                     {{ donation.title }}</v-card-title
                 >
@@ -60,10 +60,11 @@
 import LiberapayIcon from "./icons/LiberapayIcon.vue";
 import PaypalIcon from "./icons/PaypalIcon.vue";
 import PatreonIcon from "./icons/PatreonIcon.vue";
+import DogecoreIcon from "./icons/DogecoreIcon.vue";
 import { getDeviceName } from "../core/devices";
 
 export default {
-    components: { LiberapayIcon, PaypalIcon, PatreonIcon },
+    components: { LiberapayIcon, PaypalIcon, PatreonIcon, DogecoreIcon },
     name: "FinishStep",
 
     props: ["device", "blobStore", "active"],

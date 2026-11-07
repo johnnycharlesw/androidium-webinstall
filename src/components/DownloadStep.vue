@@ -5,8 +5,7 @@
 
             <div class="text-body-1">
                 <p>
-                    Pick a build of {{ $root.$data.OS_NAME }} to download and
-                    install.
+                    Pick a build of Androidium to download and install.
                 </p>
             </div>
         </div>
@@ -67,12 +66,9 @@
             >
                 <v-icon slot="icon" color="green darken-3">mdi-check</v-icon>
                 <div class="my-4">
-                    <span class="text-body-1 green--text text--darken-3"
-                        >Downloaded {{ $root.$data.OS_NAME }}
-                        {{ $root.$data.release.version }}-{{
-                            $root.$data.release.variant
-                        }}</span
-                    >
+                    <span class="text-body-1 green--text text--darken-3">Downloaded Androidium
+                        {{ $root.$data.release.version }}
+                    </span>
                 </div>
             </v-banner>
             <v-banner

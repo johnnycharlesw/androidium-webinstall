@@ -1,5 +1,5 @@
 {
-    "name": "android-webinstall",
+    "name": "androidium-webinstall",
     "version": "0.1.0",
     "private": true,
     "scripts": {

@@ -5,24 +5,13 @@
 
             <div class="text-body-1">
                 <p>
-                    Put your device into bootloader mode by restarting it and
-                    holding the
-                    <strong>volume down</strong> button until you see a
-                    <span class="red--text text--darken-3">red</span> warning
-                    sign or
-                    <span class="green--text text--darken-3">green</span>
-                    Android robot.
+                    Put your device into the firmware menu by turning it off and holding Power + Volume Down (on most phones, it's only slightly less consistent than the BIOS key on PC!) until you see a <span class="red--text text--darken-3">red warning sign</span> or <span class="green--text text--darken-3">Android's mascot, Bugdroid.</span>
                 </p>
                 <p>
-                    Once your device is in bootloader mode, plug it into the
-                    computer or device you’re installing from. Make sure you use
-                    a
-                    <strong>high-quality</strong> USB cable, as many cables will
-                    cause issues. Avoid USB hubs if possible.
+                    Once your device is in the firmware menu, plug it into the computer or device you’re installing from. Make sure you use a <strong>high-quality</strong> USB cable, as many cables will cause issues. Avoid no-name USB hubs if possible (if it doesn't behave reliably a brick might occur).
                 </p>
                 <p>
-                    Your USB cable needs to be able to copy files. Charging-only
-                    cables won’t work.
+                    Your USB cable needs to be able to transfer data. Charging-only cables won’t work.
                 </p>
             </div>
 

@@ -140,28 +140,28 @@
 
                 <v-card-text>
                     <p>
-                        You need to select a device to continue installing.
+                        You need to select a device to continue installing (make sure to select the correct one, you don't want to accidentally flash Androidium onto your FTC Driver Station!)
                     </p>
                     <p>
                         Device not showing up? Try following these steps:
                         <ul class="ml-4 mb-4">
-                            <li>Put your device into bootloader mode</li>
-                            <li>Use a different cable</li>
-                            <li>Clean your USB port</li>
-                            <li>Don’t use USB hubs</li>
-                            <li>Make sure the cable isn’t loose</li>
+                            <li>Put your device into the firmware menu (to do so, turn it off and then hold Power and Volume Down, or at least on most devices, it's only slightly less inconsistent than the BIOS key on PC)</li>
+                            <li>Use a different cable (some only charge, this needs a cable supporting data transfer)</li>
+                            <li>Clean your USB port (who hasn't had dust in there?)</li>
+                            <li>Don’t use sketchy USB hubs (like, don't try to flash Androidium through a no-name USB hub, if it doesn't behave reliably a brick might occur)</li>
+                            <li>Make sure the cable isn’t loose (who hasn't had loose cables?)</li>
                         </ul>
                     </p>
                     <p v-if="userAgent.includes('Windows')">
-                        If it’s still not working, you need to install Windows drivers:
+                        If it’s still not working, you need to install Windows drivers (like always 😭):
                         <ol class="ml-4 mb-4">
-                            <li>Plug your device into your computer while it’s in bootloader mode</li>
+                            <li>Plug your device into your computer while it’s in the firmware menu</li>
                             <li>Open Settings → Windows Update</li>
                             <li>Click “Check for updates” and wait</li>
                             <li>Click “View optional updates”</li>
                             <li>Select the “Android Bootloader Interface” update (ignore the brand name)</li>
                             <li>Click “Download and install” and wait</li>
-                            <li>Unplug your device and plug it back in</li>
+                            <li>Yank the USB-C cable and plug it back in (not THAT HARD, actually!)</li>
                         </ol>
                     </p>
                 </v-card-text>
@@ -177,16 +177,48 @@
 
         <v-dialog v-model="connectUdevDialog" width="500" persistent>
             <v-card>
-                <v-card-title class="headline">Access denied</v-card-title>
+                <v-card-title class="headline">Access to phones over USB not allowed</v-card-title>
 
                 <v-card-text>
                     <p>
-                        On Linux, users aren’t allowed to access USB devices by
-                        default.
+                        On Linux, access to Android(ium) devices over USB for non-file-transfer purposes isn't allowed.
                     </p>
                     <p>
-                        To fix this, install Android udev rules on your system:
+                        To fix this, install Android(ium) udev rules on your system:
                     </p>
+
+                    <v-list-item two-line>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                Debian (CLI only)
+                            </v-list-item-title>
+                            <v-list-item-subtitle>
+                                sudo apt install
+                                android-sdk-platform-tools-common
+                            </v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+
+                    <v-list-item two-line>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                Debian (LXQt)
+                            </v-list-item-title>
+                            <v-list-item-subtitle>
+                                <ol>
+                                    <li>
+                                        Launch "Synaptic Package Manager" and enter your password
+                                    </li>
+                                    <li>
+                                        Search for "android sdk platform tools"
+                                    </li>
+                                    <li>
+                                        When "android-sdk-platform-tools-common" comes up, install it.
+                                    </li>
+                                </ol>
+                            </v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
 
                     <v-list-item two-line>
                         <v-list-item-content>
@@ -200,30 +232,17 @@
 
                     <v-list-item two-line>
                         <v-list-item-content>
-                            <v-list-item-title
-                                >Debian, Ubuntu</v-list-item-title
-                            >
-                            <v-list-item-subtitle
-                                >sudo apt install
-                                android-sdk-platform-tools-common</v-list-item-subtitle
-                            >
-                        </v-list-item-content>
-                    </v-list-item>
-
-                    <v-list-item two-line>
-                        <v-list-item-content>
-                            <v-list-item-title
-                                >Other distributions</v-list-item-title
-                            >
-                            <v-list-item-subtitle
-                                >Instructions vary</v-list-item-subtitle
-                            >
+                            <v-list-item-title>
+                                Other distributions
+                            </v-list-item-title>
+                            <v-list-item-subtitle>
+                                Instructions vary (note: while Kali can use the Debian instructions mentioned above, I don't know about you, but I don't want that much bloat preinstalled if I'm only going to use this installer!)
+                            </v-list-item-subtitle>
                         </v-list-item-content>
                     </v-list-item>
 
                     <p>
-                        Once you’ve installed udev rules, unplug your device and
-                        plug it back in for it to take effect.
+                        Once you've installed the Android(ium) udev rules, yank the USB-C cable out of the device's port and then reconnect it (not THAT HARD, actually!)
                     </p>
                 </v-card-text>
 
@@ -239,25 +258,21 @@
         <v-dialog v-model="claimDialog" width="500" persistent>
             <v-card>
                 <v-card-title class="headline">
-                    Can’t control device
+                    Can’t talk to device
                 </v-card-title>
 
                 <v-card-text>
                     <p>
-                        Another app is taking control of your device, so we
-                        can’t talk to it.
+                        Another app or browser tab is already talking to your device, and it would not be polite, let alone permitted, to yell over it.
                     </p>
                     <p>
                         This is usually caused by having this installer open in
                         another browser tab.
                     </p>
                     <p>
-                        To fix this, close all other web installer tabs in your
-                        browser and make sure you don’t have any tabs remaining
-                        in other windows.
+                        To fix this, close all other web installer tabs in your browser (don't cheat with GrapheneOS!) and make sure you don’t have any tabs remaining in other windows.
                     </p>
                 </v-card-text>
-
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" text @click="retryClaim">
@@ -266,26 +281,23 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
-
         <v-dialog v-model="disconnectDialog" width="500" persistent>
             <v-card>
                 <v-card-title class="headline">
                     Device disconnected
                 </v-card-title>
-
                 <v-card-text>
                     <p>
-                        Your device disconnected, so we can’t
-                        continue installing.
+                        Your device disconnected, so the installation cannot continue.
                     </p>
                     <p>
                         To fix this:
                         <ul class="ml-4 mb-4">
-                            <li>Don’t touch the device</li>
-                            <li>Use a different cable</li>
-                            <li>Clean your USB port</li>
-                            <li>Don’t use USB hubs</li>
-                            <li>Make sure the cable isn’t loose</li>
+                            <li>Don’t touch the device (now is not the time to yank the cable, silly!)</li>
+                            <li>Use a different cable (again, some cables aren't as reliable)</li>
+                            <li>Clean your USB port (who hasn't had dust in there?)</li>
+                            <li>Don’t use sketchy USB hubs (like, don't try to flash Androidium through a no-name USB hub, OH NO THE BRICK MAY HAVE OCCURRED ALREADY! 😯)</li>
+                            <li>Make sure the cable isn’t loose (who hasn't had loose cables?)</li>
                         </ul>
                     </p>
                     <connect-banner
@@ -294,7 +306,6 @@
                         :error="disconnectReconnectError"
                     />
                 </v-card-text>
-
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" text @click="retryDisconnect">
@@ -303,28 +314,22 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
-
         <v-dialog v-model="storageDialog" width="500" persistent>
             <v-card>
                 <v-card-title class="headline">Out of storage</v-card-title>
-
                 <v-card-text>
                     <p>
-                        There isn’t enough storage space available to download
-                        and unpack the OS. You need at least 5 GB free.
+                        There isn’t enough storage space available and usable to download and unpack Androidium. You need at least 5 GB free (maybe don't save 500,000 hamster gifs for no reason!)
                     </p>
                     <p>
-                        If you’re not low on storage, this is caused by
-                        using an incognito window or guest browser profile. These profiles have very low storage limits, so
-                        installing from them isn’t possible.
+                        If you’re not that low on storage, this is probably caused by using incognito mode. Incognito mode can't store data (not much, if in a non-persistent manner, also it doesn't really work without hardening that makes more sense in a regular Thorium profile tbh).
                     </p>
                     <p>
                         To fix this,
-                        <strong>switch to a normal browser profile</strong>
+                        <strong>switch to a normal profile</strong>
                         and try again.
                     </p>
                 </v-card-text>
-
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" text @click="retryStorage">
@@ -336,20 +341,17 @@
 
         <v-dialog v-model="memoryDialog" width="500" persistent>
             <v-card>
-                <v-card-title class="headline">Out of memory</v-card-title>
-
+                <v-card-title class="headline">Out of RAM</v-card-title>
                 <v-card-text>
                     <p>
-                        There isn’t enough free memory (RAM) to unpack and
-                        install the OS.
+                        There isn’t enough free memory (RAM) to unpack and install Androidium. This might be because everyone is rushing to make AGI and consuming petabytes of RAM, but let's not assume.
                     </p>
                     <p>
                         To fix this,
-                        <strong>close some unused apps</strong> and try again.
+                        <strong>close some unused (proprietary) apps</strong> and try again.
                     </p>
                     <p>
-                        If it still doesn’t work, you may need to install from
-                        another computer or device with more memory.
+                        If it still doesn’t work, you may need to install from another computer or device with more RAM.
                     </p>
                 </v-card-text>
 
@@ -405,7 +407,7 @@
                         The connection to your device is stuck.
                     </p>
                     <p>
-                        To fix this, use the volume buttons to highlight <strong>“Restart bootloader”</strong> in the bootloader menu, and press the power button to select it.
+                        To fix this, use the volume buttons to highlight <strong>“Restart bootloader”</strong> in the firmware menu, and press the power button to select it (don't yank the cable, please).
                     </p>
                 </v-card-text>
 

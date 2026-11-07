@@ -1,16 +1,14 @@
 <template>
     <v-container class="d-flex justify-space-between flex-column flex-grow-1">
         <div class="mt-n4">
-            <h6 class="text-h6 pb-4">Unlock your bootloader</h6>
+            <h6 class="text-h6 pb-4">Disable Secure Boot</h6>
 
             <div class="text-body-1">
                 <p>
-                    In order to install custom software, you need to unlock your
-                    device’s bootloader.
+                    In order to install custom software, you need to disable Secure Boot on your mobile device.
                 </p>
                 <p>
-                    If this is your first time or you haven’t already turned on
-                    OEM unlocking:
+                    If this is your first time or you haven’t already turned on OEM unlocking:
                 </p>
                 <ol class="ml-4 mb-8">
                     <li>Restart back to Android</li>
@@ -19,7 +17,7 @@
                     </li>
                     <li>
                         Tap “Build number” repeatedly until developer options is
-                        unlocked
+                        unlocked (if this asks for your id, maybe try disabling play services lol)
                     </li>
                     <li>
                         Go to Settings → System → Advanced → “Developer options”
@@ -33,7 +31,7 @@
                 color="primary"
                 @click="unlock"
                 :disabled="unlocking || unlocked"
-                >Unlock</v-btn
+                >Disable Secure Boot</v-btn
             >
         </div>
 
@@ -41,7 +39,7 @@
             <v-banner single-line outlined rounded class="mt-4" v-if="unlocked">
                 <v-icon slot="icon" color="green darken-3">mdi-check</v-icon>
                 <span class="text-body-1 green--text text--darken-3"
-                    >Bootloader unlocked</span
+                    >Secure Boot disabled</span
                 >
             </v-banner>
             <v-banner
@@ -57,8 +55,8 @@
                     color="primary"
                 ></v-progress-circular>
                 <span class="text-body-1"
-                    >Unlocking bootloader… Confirm using the volume and power
-                    buttons.</span
+                    >Disabling Secure Boot… Confirm using the volume and power
+                    buttons. </span
                 >
             </v-banner>
             <v-banner
@@ -93,8 +91,7 @@
 
                 <v-card-text>
                     <p>
-                        For security reasons, bootloader unlock isn’t allowed by
-                        default. Enable OEM unlocking to allow it:
+                        For security reasons, disabling Secure Boot isn’t allowed by default (wouldn't that defeat the entire purpose?). Enable OEM unlocking to allow it:
                     </p>
 
                     <ol class="ml-4 mb-4">
@@ -105,7 +102,7 @@
                         </li>
                         <li>
                             Tap “Build number” repeatedly until developer
-                            options is unlocked
+                            options is unlocked (if this asks for your id, maybe try disabling play services lol)
                         </li>
                         <li>
                             Go to Settings → System → Advanced → “Developer
@@ -116,8 +113,7 @@
                     </ol>
 
                     <p>
-                        Once you’ve enabled OEM unlocking, try unlocking the
-                        bootloader again.
+                        Once you’ve enabled OEM unlocking, try disabling Secure Boot again.
                     </p>
                 </v-card-text>
 

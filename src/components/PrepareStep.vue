@@ -1,14 +1,11 @@
 <template>
     <v-container class="d-flex justify-space-between flex-column flex-grow-1">
         <div class="mb-10 mt-n4" v-if="usbSupported">
-            <h6 class="text-h6 pb-4">Prepare your device</h6>
+            <h6 class="text-h6 pb-4">Hi!</h6>
 
             <div class="text-body-1">
                 <p>
-                    This is an easy way to install
-                    {{ $root.$data.OS_NAME }} on your device. You’ll need an
-                    <strong>unlocked</strong> model of one of the supported
-                    devices:
+                    This is an easy way to install Androidium on your device. You’ll need a <strong>carrier-unlocked or AT&T (not sponsored btw)</strong> model of one of the supported devices:
                 </p>
             </div>
 
@@ -33,17 +30,13 @@
 
             <div class="text-body-1">
                 <p>
-                    Unfortunately, you can’t use this web installer for
-                    {{ $root.$data.OS_NAME }} because your browser doesn’t
-                    support WebUSB. Only Google Chrome and other browsers based
-                    on Chromium, such as Brave and Microsoft Edge, are supported.
+                    Unfortunately, you can’t use this web installer for Androidium because your browser doesn’t support WebUSB. Only Thorium and other browsers based on Chromium, such as Supermium or Brave, are supported.
                 </p>
             </div>
 
             <div class="text-body-1 mt-4">
                 <p>
-                    If you think this is a mistake, update your browser to the
-                    latest version and try again.
+                    If you think this is a mistake, update your browser to the latest version and try again.
                 </p>
             </div>
         </div>

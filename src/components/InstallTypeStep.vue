@@ -5,9 +5,7 @@
 
             <div class="text-body-1">
                 <p>
-                    This installer can help you update from an older version of
-                    {{ $root.$data.OS_NAME }} or switch to it from another OS,
-                    but you need to choose which one you want.
+                    This installer can help you update from an older version of Androidium or switch to it from another (non-Apple) OS, but you need to choose which one you want.
                 </p>
             </div>
         </div>
@@ -37,11 +35,10 @@
                     Clean install</v-card-title
                 >
                 <v-card-subtitle
-                    >Switch from the stock OS or another ROM to
-                    {{ $root.$data.OS_NAME }}.
-                    <strong class="red--text text--darken-2"
-                        >All data on your device will be lost.</strong
-                    >
+                    >Switch from the stock OS or another ROM to Androidium.
+                    <strong class="red--text text--darken-2">
+                        Your device will be factory reset, so back up everything first! And also, back it up to your computer if possible, avoid Google Cloud.
+                    </strong>
                 </v-card-subtitle>
             </v-card>
 
@@ -64,14 +61,13 @@
             >
                 <div>
                     <v-card-title class="mt-n2">
-                        <v-icon class="pr-2 py-2" color="rgba(0, 0, 0, 0.87)"
-                            >mdi-update</v-icon
-                        >
-                        Update</v-card-title
-                    >
-                    <v-card-subtitle
-                        >Update from an older version of
-                        {{ $root.$data.OS_NAME }}. Your data won’t be affected.
+                        <v-icon class="pr-2 py-2" color="rgba(0, 0, 0, 0.87)">
+                            mdi-update
+                        </v-icon>
+                        Update
+                    </v-card-title>
+                    <v-card-subtitle>
+                        Update from an older version of Androidium. Your data won’t be affected (installing Androidium over the stock OS doesn't count as an update for this process, no matter how many ads there were).
                     </v-card-subtitle>
                 </div>
             </v-card>
