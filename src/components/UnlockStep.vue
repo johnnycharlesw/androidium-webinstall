@@ -17,7 +17,7 @@
                     </li>
                     <li>
                         Tap “Build number” repeatedly until developer options is
-                        unlocked (if this asks for your id, maybe try disabling play services lol)
+                        unlocked (if this asks for your id, maybe try disabling play services)
                     </li>
                     <li>
                         Go to Settings → System → Advanced → “Developer options”
@@ -102,7 +102,7 @@
                         </li>
                         <li>
                             Tap “Build number” repeatedly until developer
-                            options is unlocked (if this asks for your id, maybe try disabling play services lol)
+                            options is unlocked (if this asks for your id, maybe try disabling play services)
                         </li>
                         <li>
                             Go to Settings → System → Advanced → “Developer
